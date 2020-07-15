@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>标注</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 800px;
+      height: 600px;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <button class="big">放大</button>
+  <button class="small">缩小</button>
+  <input type="file">
+</body>
+<script src="./mark.js"></script>
+<script>
+  let hey = new Heylight({
+    el: '#box',
+    bigBtn: '.big', // 
+    smallBtn: '.small',
+    inputFile: '[type=file]',
+    onchange(list) {
+      console.log(list)
+    }
+  })
+
+</script>
+
+</html>
