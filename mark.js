@@ -386,7 +386,7 @@ class Heylight {
   removeItem(id) {
     for (let n = 0; n < this.list.length; n++) {
       const item = this.list[n];
-      if (item.id === id) {
+      if (item.id == id) {
         this.list.splice(n, 1)
         break
       }

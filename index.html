@@ -27,6 +27,11 @@
   <button class="big">放大</button>
   <button class="small">缩小</button>
   <input type="file">
+  <div>
+    序号
+    <input type="text" class="num">
+    <button class="submit" onclick="remove()">删除</button>
+  </div>
 </body>
 <script src="./mark.js"></script>
 <script>
@@ -39,6 +44,10 @@
       console.log(list)
     }
   })
+
+  function remove() {
+    hey.removeItem(document.querySelector('.num').value)
+  }
 
 </script>
 
