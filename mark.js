@@ -53,8 +53,8 @@ class Heylight {
     this.wraper.style.fontSize = 0
     this.canvas = document.createElement('canvas')
     this.ctx = this.canvas.getContext('2d')
-    this.wraper.appendChild(this.canvas)
-    this.el.appendChild(this.wraper)
+    // this.wraper.appendChild(this.canvas)
+    this.el.appendChild(this.canvas)
     this.image = new Image()
   }
   drewCtrl() {
@@ -202,12 +202,11 @@ class Heylight {
           break;
       }
       this.pressType = 0
-      this.clickX = 0
-      this.clickY = 0
     })
     this.image.addEventListener('load', () => {
       this.WIDTH = this.canvas.width = this.image.width
       this.HEIGHT = this.canvas.height = this.image.height
+      this.setCenter()
       this.ctx.drawImage(this.image, 0, 0)
     })
     this.inputFile.addEventListener('change', e => {
@@ -256,11 +255,32 @@ class Heylight {
       this.dragRect.endY + 5,
     ])
   }
+  setCenter() {
+    let {
+      scrollHeight,
+      scrollWidth,
+      clientHeight,
+      clientWidth
+    } = this.el
+    let moveTop = (scrollHeight - clientHeight) / 2
+    let moveLeft = (scrollWidth - clientWidth) / 2
+    this.el.scrollTop = moveTop
+    this.el.scrollLeft = moveLeft
+
+    let toTop = clientHeight - this.canvas.height
+    console.log(clientHeight, this.canvas.height)
+    if (toTop > 0) {
+      this.canvas.style.transform = `translateY(${toTop/2}px)`
+    } else {
+      this.canvas.style.transform = `translateY(0)`
+    }
+  }
   setScale(type) {
     // 设置缩放
     let scale = type === 'bigger' ? 1.1 : 0.9
     this.canvas.width *= scale
     this.canvas.height *= scale
+    this.setCenter()
     this.clearCanvas()
     this.drewBackground()
     this.drewList()
