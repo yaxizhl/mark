@@ -1,37 +1,21 @@
 # mark
 利用canvas对图片进行坐标标注
 
-使用方法参考index.html
-```css
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+```
+import MarkImage from "./MarkImage.js";
 
-    #box {
-      width: 800px;
-      height: 600px;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-```
-```html
-  <div id="box"></div>
-  <button class="big">放大</button>
-  <button class="small">缩小</button>
-  <input type="file">
-```
-```
-let hey = new Heylight({
+let markImage = new MarkImage({
     el: '#box',
-    bigBtn: '.big', // 
-    smallBtn: '.small',
-    inputFile: '[type=file]',
-    onchange(list) {
+  }, (list)=> {
+      // 输出标注结果
       console.log(list)
-    }
-  })
-  // 删除指定序号的标注
-  // hey.removeItem(id)
+    })
+  // 添加要标注到图片
+  markImage.image.src="test.jpg"
+  // 是否拖动图片,标注只有在禁止拖动到时候才可以
+  markImage.options.canMoveImage=false
+  // 删除指定序号的标注 true放大，false缩小
+  hey.setScale(true)
+  // 缩放图片，
+  hey.removeIndex(id)
 ```
