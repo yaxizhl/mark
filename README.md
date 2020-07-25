@@ -14,8 +14,8 @@ let markImage = new MarkImage({
   markImage.image.src="test.jpg"
   // 是否拖动图片,标注只有在禁止拖动到时候才可以
   markImage.options.canMoveImage=false
-  // 删除指定序号的标注 true放大，false缩小
+  // 缩放图片，  true放大，false缩小
   hey.setScale(true)
-  // 缩放图片，
+  // 删除指定序号的标注
   hey.removeIndex(id)
 ```
