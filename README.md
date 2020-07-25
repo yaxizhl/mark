@@ -1,6 +1,9 @@
 # mark
 利用canvas对图片进行坐标标注
 
+<img src="./test1.jpg" width="100%">
+<img src="./mark.png" width="100%">
+
 ```javascript
 import MarkImage from "./MarkImage.js";
 
