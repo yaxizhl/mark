@@ -1,7 +1,7 @@
 # mark
 利用canvas对图片进行坐标标注
 
-```
+```javascript
 import MarkImage from "./MarkImage.js";
 
 let markImage = new MarkImage({
